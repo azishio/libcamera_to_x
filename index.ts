@@ -8,7 +8,7 @@ const client = new TwitterApi(bundled_env().x_token);
 console.log(path.dirname(Bun.main));
 
 // TODO 一度ファイルに出力せず、画像バイナリを直接受け取れるようにする方法を探す
-const imageFilePath = "~/libcamera_captured_picture.jpg";
+const imageFilePath = "./libcamera_captured_picture.jpg";
 
 const {height ,width } = bundled_env().camera;
 
