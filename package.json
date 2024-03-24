@@ -1,20 +1,21 @@
 {
-	"name": "libcarema_to_x",
-	"module": "index.ts",
-	"type": "module",
-	"scripts": {
-		"build": "bun build ./index.ts  --outfile build/libcamera_to_x --compile --minify"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.6.2",
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"dependencies": {
-		"@t3-oss/env-core": "^0.9.2",
-		"twitter-api-v2": "^1.16.1",
-		"zod": "^3.22.4"
-	}
+  "name": "libcarema_to_x",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build ./index.ts  --outfile build/libcamera_to_x --compile --minify"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.2",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.9.2",
+    "sharp": "^0.33.3",
+    "twitter-api-v2": "^1.16.1",
+    "zod": "^3.22.4"
+  }
 }
