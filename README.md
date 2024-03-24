@@ -62,11 +62,20 @@ Release notes
     ```
 
 # cronの設定例
-`cron`を使用することで、定期実行が可能になります。
-`crontab -e`でエディタを開いたあと、以下のように追記してください。
-この例では、毎日0時、8時、16時に実行されます。
+~~`cron`を使用することで、定期実行が可能になります。~~
+
+~~`crontab -e`でエディタを開いたあと、以下のように追記してください。~~
+
+~~この例では、毎日0時、8時、16時に実行されます。~~
 ```cronexp
 0 0,8,16 * * * /PATH/TO/EXECUTABLE/FILE/libcamera_to_x
+```
+
+現在cronやsystemdからの実行でのみエラーが発生していることを確認しています。
+タスクランナーから起動するときは、実行ファイルでなく`bun run`コマンドから起動してください。
+
+```cronexp
+0 0,8,16 * * * /PATH/TO/BUN/DIR/bun run /PATH/TO/PROJECT/ROOT/index.ts
 ```
 
 cronの詳細については[こちら](https://wiki.archlinux.jp/index.php/Cron)を参照してください。
