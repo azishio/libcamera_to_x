@@ -20,4 +20,6 @@ await $`libcamera-jpeg -o ${imageFilePath} -t 1 --width ${width} --height ${heig
 
 const mediaId = await client.v1.uploadMedia(imageFilePath);
 
-client.v2.tweet(Date(), { media: { media_ids: [mediaId] } });
+await client.v2.tweet(Date(), { media: { media_ids: [mediaId] } });
+
+await $`rm ${imageFilePath}`;
