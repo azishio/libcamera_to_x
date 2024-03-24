@@ -1,9 +1,9 @@
 {
-	"name": "shimonita_x",
+	"name": "libcarema_to_x",
 	"module": "index.ts",
 	"type": "module",
 	"scripts": {
-		"build": "bun build ./index.ts  --outfile build/shimonita_x --compile --minify"
+		"build": "bun build ./index.ts  --outfile build/libcamera-to-x --compile --minify"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.6.2",
