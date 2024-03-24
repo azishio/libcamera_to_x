@@ -4,8 +4,8 @@
 	"type": "module",
 	"scripts": {
 		"build": "bun build ./index.ts  --outfile build/libcamera_to_x --compile --minify",
-		"set": "cp build/libcamera_to_x /opt/ && cp service/libcamera_to_x.service service/libcamera_to_x.timer /etc/systemd/system/",
-		"unset": "rm -f build/libcamera_to_x /etc/systemd/system/libcamera_to_x.service /etc/systemd/system/libcamera_to_x.timer "
+		"set": "sudo cp build/libcamera_to_x /opt/ && sudo cp service/libcamera_to_x.service service/libcamera_to_x.timer /etc/systemd/system/",
+		"unset": "sudo rm -f build/libcamera_to_x /etc/systemd/system/libcamera_to_x.service /etc/systemd/system/libcamera_to_x.timer "
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.6.2",
