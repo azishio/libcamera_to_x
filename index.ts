@@ -10,7 +10,9 @@ console.log(path.dirname(Bun.main));
 // TODO 一度ファイルに出力せず、画像バイナリを直接受け取れるようにする方法を探す
 const imageFilePath = "~/libcamera_captured_picture.jpg";
 
-const { width, height } = bundled_env().camera;
+const {height ,width } = bundled_env().camera;
+
+console.log(width,height)
 
 await $`libcamera-jpeg -o ${imageFilePath} -t 1 --width ${width} --height ${height}`.env(
 	{
