@@ -1,25 +1,23 @@
-import * as path from "node:path";
-import { $ } from "bun";
-import { TwitterApi } from "twitter-api-v2";
-import { bundled_env } from "./bundled_env.ts" with { type: "macro" };
+import {$} from "bun";
+import {EUploadMimeType, TwitterApi} from "twitter-api-v2";
+import {bundled_env} from "./bundled_env.ts" with {type: "macro"};
 
 const client = new TwitterApi(bundled_env().x_token);
 
-console.log(path.dirname(Bun.main));
+const { height, width } = bundled_env().camera;
 
-// TODO 一度ファイルに出力せず、画像バイナリを直接受け取れるようにする方法を探す
-const imageFilePath = "./libcamera_captured_picture.jpg";
-
-const {height ,width } = bundled_env().camera;
-
-await $`libcamera-jpeg -o ${imageFilePath} -n --width ${width} --height ${height}`.env(
-	{
-		PATH: "/usr/bin", // `libcamera-jpeg`の場所},
-	},
+const image = Buffer.from(
+	await (
+		await $`libcamera-jpeg -o - -t 1 -n --width ${width} --height ${height}`
+			.env({
+				PATH: "/usr/bin", // `libcamera-jpeg`の場所},
+			})
+			.blob()
+	).arrayBuffer(),
 );
 
-const mediaId = await client.v1.uploadMedia(imageFilePath);
+const mediaId = await client.v1.uploadMedia(image, {
+	mimeType: EUploadMimeType.Jpeg,
+});
 
 await client.v2.tweet(Date(), { media: { media_ids: [mediaId] } });
-
-await $`rm ${imageFilePath}`;
