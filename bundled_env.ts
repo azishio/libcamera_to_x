@@ -4,9 +4,9 @@ export function bundled_env() {
 	return {
 		x_token: {
 			appKey: env.X_API_KEY,
-			appSecret: env.X_API_SECRET,
+			appSecret: env.X_API_KEY_SECRET,
 			accessToken: env.X_ACCESS_TOKEN,
-			accessSecret: env.X_ACCESS_SECRET,
+			accessSecret: env.X_ACCESS_TOKEN_SECRET,
 		},
 		camera: {
 			height: env.HEIGHT,
