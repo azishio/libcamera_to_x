@@ -1,0 +1,11 @@
+[Unit]
+Description=Take a photo with "libcamera" at the designated time and post it to X.
+After=network.target
+
+[Service]
+ExecStart=/opt/libcamera_to_x
+Restart=on-failure
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
