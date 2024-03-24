@@ -3,7 +3,7 @@
 	"module": "index.ts",
 	"type": "module",
 	"scripts": {
-		"build": "bun build ./index.ts  --outfile build/libcamera-to-x --compile --minify"
+		"build": "bun build ./index.ts  --outfile build/libcamera_to_x --compile --minify"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.6.2",
