@@ -12,7 +12,7 @@ const imageFilePath = "./libcamera_captured_picture.jpg";
 
 const {height ,width } = bundled_env().camera;
 
-await $`libcamera-jpeg -o ${imageFilePath} -t 1 --width ${width} --height ${height}`.env(
+await $`libcamera-jpeg -o ${imageFilePath} -n --width ${width} --height ${height}`.env(
 	{
 		PATH: "/usr/bin", // `libcamera-jpeg`の場所},
 	},
